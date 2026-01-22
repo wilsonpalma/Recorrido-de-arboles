@@ -4,10 +4,15 @@ import ed.u3.core.BinaryTree;
 import ed.u3.util.TreeBuilder;
 import ed.u3.util.TreePrinter;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class App {
 
-    public static void main(String[] args) {
-        BinaryTree<String> tree = TreeBuilder.sampleTree();
+    public static void main(String[] args) throws IOException {
+        Path p = Paths.get("data/arbol_10_nodos.txt");
+        BinaryTree<Integer> tree = TreeBuilder.fromIndexedFile(p);
 
         System.out.println("=== Árbol ===");
         TreePrinter.printHorizontal(tree.root);
